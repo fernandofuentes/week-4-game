@@ -15,10 +15,6 @@ ul, ol, p {
 	color: #dddddd;
 }
 
-.numberToGet {
-
-}
-
 .colorBlue {
 	color: blue;
 }
@@ -41,9 +37,9 @@ color: purple;
 	height: 4em;
 }
 
-span#finalTotal {
+span#total {
 	padding: 0;
 	margin: 0;
-	font-size: 10em;
+	font-size: 9em;
 
 }

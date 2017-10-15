@@ -1,45 +1,37 @@
 $(document).ready(function () {
+    // Starts Game with Random Number
+    var random = Math.floor((Math.random() * 101) + 19);
+    $("#randomNumber").text(random);
 
-    var Random = Math.floor(Math.random() * 101 + 19);
-    // Selects a random number to be shown at the start of the game
-    // Number should be should be between 19 - 120
-    //
-    $("#randomNumber").text(Random);
-    // Appending random number to the randomNumber id in the html doc
-    //
-    var blueCrystalRandomNumber = Math.floor((Math.random() * 11) + 1);
-    var greenCrystalRandomNumber = Math.floor((Math.random() * 11) + 1);
-    var redCrystalRandomNumber = Math.floor((Math.random() * 11) + 1);
-    var purpleCrystalRandomNumber = Math.floor((Math.random() * 11) + 1);
-    // Setting up random numbers for each jewel
-    // Random number has to be between 1 - 12
-    //
-
+    // Sets beginning numbers to 0
     var wins = 0;
     var losses = 0;
     var total = 0;
 
-
+    // Sets each crystal with a random number
+    var blueCrystalRandomNumber = Math.floor((Math.random() * 11) + 1);
+    var greenCrystalRandomNumber = Math.floor((Math.random() * 11) + 1);
+    var redCrystalRandomNumber = Math.floor((Math.random() * 11) + 1);
+    var purpleCrystalRandomNumber = Math.floor((Math.random() * 11) + 1);
 
     // Reset the Game!
-    function reset() {
-        Random = Math.floor(Math.random() * 101 + 19);
-        console.log(Random);
-        $("#randomNumber").text(Random);
-        blueCrystalRandomNumber = Math.floor(Math.random() * 11 + 1);
-        greenCrystalRandomNumber = Math.floor(Math.random() * 11 + 1);
-        redCrystalRandomNumber = Math.floor(Math.random() * 11 + 1);
-        purpleCrystalRandomNumber = Math.floor(Math.random() * 11 + 1);
+    function resetTheGame() {
+        random = Math.floor((Math.random() * 101) + 19);
+        $("#randomNumber").text(random);
+        blueCrystalRandomNumber = Math.floor((Math.random() * 11) + 1);
+        greenCrystalRandomNumber = Math.floor((Math.random() * 11) + 1);
+        redCrystalRandomNumber = Math.floor((Math.random() * 11) + 1);
+        purpleCrystalRandomNumber = Math.floor((Math.random() * 11) + 1);
         total = 0;
-        $("#finalTotal").text(total);
+        $("#total").text(total);
     }
 
     // Adds points to the "WINS" Score
     function youWin() {
-        alert("You won!");
+        alert("You win!");
         wins = wins + 1;
         $("#numberOfWins").text(wins);
-        reset();
+        resetTheGame();
     }
 
     // Adds points to the "losses" Score
@@ -47,16 +39,14 @@ $(document).ready(function () {
         alert("You lose!");
         losses = losses + 1;
         $("#numberOfLosses").text(losses);
-        reset()
+        resetTheGame()
     }
-
 
     // Win / Lose Conditions Function
     function winLoseCondition() {
-        if (total === Random) {
+        if (total === random) {
             youWin();
-        }
-        else if (total > Random) {
+        } else if (total > random) {
             youLose();
         }
     }
@@ -70,32 +60,28 @@ $(document).ready(function () {
     // Blue Crystal
     $("#blueCrystal").on("click", function () {
         total = total + blueCrystalRandomNumber;
-        console.log("New total= " + total);
-        $("#finalTotal").text(total);
+        $("#total").text(total);
         winLoseCondition();
     });
 
     // Green Crystal
     $("#greenCrystal").on("click", function () {
         total = total + greenCrystalRandomNumber;
-        console.log("New total= " + total);
-        $("#finalTotal").text(total);
+        $("#total").text(total);
         winLoseCondition();
     });
 
     // Red Crystal
     $("#redCrystal").on("click", function () {
         total = total + redCrystalRandomNumber;
-        console.log("New total= " + total);
-        $("#finalTotal").text(total);
+        $("#total").text(total);
         winLoseCondition();
     });
 
     // Purple Crystal
     $("#purpleCrystal").on("click", function () {
         total = total + purpleCrystalRandomNumber;
-        console.log("New total= " + total);
-        $("#finalTotal").text(total);
+        $("#total").text(total);
         winLoseCondition();
     });
 
