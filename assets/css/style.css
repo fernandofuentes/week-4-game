@@ -6,9 +6,33 @@ body {
 	text-align: left;
 }
 
-h1, h2, h3, p {
+h1, h2, h3 {
 
-	color: #ffffff;
+	color: #dddddd;
+}
+
+ul, ol, p {
+	color: #dddddd;
+}
+
+.numberToGet {
+
+}
+
+.colorBlue {
+	color: blue;
+}
+
+.colorGreen {
+color: green;
+}
+
+.colorRed {
+color: red;
+}
+
+.colorPurple {
+color: purple;
 }
 
 
